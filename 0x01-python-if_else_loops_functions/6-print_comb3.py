@@ -3,6 +3,6 @@ for i in range(10):
     for j in range(i + 1, 10):
         if i != j:
             if i < 8 or (i == 8 and j != 9):
-                print(f"{:d}{:d}".format(i, j), end=', ')
+                print("{:d}{:d}".format(i, j), end=', ')
             else:
-                print(f"{:d}{:d}".format(i, j))
+                print("{:d}{:d}".format(i, j))
