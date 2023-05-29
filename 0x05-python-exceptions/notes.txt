@@ -1,0 +1,43 @@
+﻿Exceptions
+    • These are errors detected during execution.
+
+Example 1
+while True:
+	try:
+		x = int(input(“Enter a number: ”))
+		break
+	except ValueError:
+		print(“Oops! That was no valid number. Try again…”)
+
+    • Above example asks user for input until a valid integer is entered, but also allows the user to interrupt the program using CTRL + C(using a keyboardInterrupt exception).
+    • In the above example, if an exception occurs during the execution of the try clause, the rest of the clause is skipped.
+    • If the exception type matches the exception named after the except keyword, the except clause is executed, and then execution continues after the try/except block.
+    • However, if the execution doesn’t match the one specified it is considered an unhandled exception and execution stops with the message shown above.
+
+
+    1. A try statement may have multiple except statements to handle different exceptions.
+    2. An except clause may name multiple exceptions as a tuple.
+           except (RuntimeError, TypeError, NameError):
+               pass:
+
+3. A class in an except clause is compatible with an exception if it’s in the same class or a base class thereof:
+	class B(Exception):
+		pass
+
+	class C(B):
+		pass
+
+	class D(C):
+		pass
+
+	for cls in [B, C, D]:
+		try:
+			raise cls()
+		except D:
+			print(“D”)
+		except C:
+			print(“C”)
+		except B:
+			print(“B”)
+
+    • If the except clause were reversed(with except B as the first), it would have printed B, B, B – the fist matching except clause is triggered
