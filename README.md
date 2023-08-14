@@ -1,1 +1,1 @@
-learning python
+learning python and js
