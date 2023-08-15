@@ -9,18 +9,18 @@ class Rectangle {
 
   print () {
     for (let i = 0; i < this.height; i++) {
-      let s = '';
+      let myRectangle = '';
       for (let j = 0; j < this.width; j++) {
-        s += 'X';
+        myRectangle += 'X';
       }
-      console.log(s);
+      console.log(myRectangle);
     }
   }
 
   rotate () {
-    const aux = this.width;
+    const temp = this.width;
     this.width = this.height;
-    this.height = aux;
+    this.height = temp;
   }
 
   double () {
