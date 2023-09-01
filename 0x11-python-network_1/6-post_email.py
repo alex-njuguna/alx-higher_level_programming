@@ -4,12 +4,12 @@
 - sends a request to the URL and displays the value
 - of the X-Request-Id variable found in the header ofthe response.
 """
-import sys
-import urllib.request
+from sys import argv
+import requests
 
 if __name__ == "__main__":
-    url = sys.argv[1]
+    url = argv[1]
+    value = {'email': argv[2]}
 
-    request = urllib.request.Request(url)
-    with urllib.request.urlopen(request) as response:
-        print(dict(response.headers).get("X-Request-Id"))
+    response = requests.post(url, data=value)
+    print(response.text)
